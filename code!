@@ -1,0 +1,29 @@
+user_input = input("Enter money: ").replace("$", "")
+money = (float(user_input) * 100)
+
+# I don't think a function is needed here, but I've already made the program and I don't want to fuck it up.
+def conversion(totalpennies):
+    quarters = 0
+    dimes = 0
+    nickles = 0
+    pennies = 0
+    while totalpennies > 0:
+        if totalpennies >= 25:
+            quarters += 1
+            totalpennies -= 25
+        elif totalpennies < 25:
+            if totalpennies >= 10:
+                dimes += 1
+                totalpennies -= 10
+            elif totalpennies < 10:
+                if totalpennies >= 5:
+                    totalpennies -= 5
+                    nickles += 1
+                else:
+                    totalpennies -= 1
+                    pennies += 1
+
+    print(f"You have:\n($0.25) Quarters : {quarters}\n($0.10) Dimes    : {dimes}\n($0.05) Nickles  : {nickles}\n($0.01) Pennies  : {pennies}")
+
+
+conversion(money)
